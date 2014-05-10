@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508114517) do
+ActiveRecord::Schema.define(version: 20140510121129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140508114517) do
     t.integer  "tweet_id",    limit: 8
     t.string   "screen_name"
     t.text     "tweet_text"
-    t.boolean  "deleted"
+    t.boolean  "deleted",               default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
