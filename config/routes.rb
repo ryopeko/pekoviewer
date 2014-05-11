@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :activities
+
   mount Sidekiq::Web => '/sidekiq'
   resources :tweets
 

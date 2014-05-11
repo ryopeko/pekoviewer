@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510122636) do
+ActiveRecord::Schema.define(version: 20140511122203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: true do |t|
+    t.string   "actor_screen_name"
+    t.string   "source_service_name",                 null: false
+    t.string   "source_type",                         null: false
+    t.text     "description"
+    t.text     "permalink"
+    t.boolean  "deleted",             default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tweets", force: true do |t|
     t.integer  "tweet_id",              limit: 8

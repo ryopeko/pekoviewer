@@ -1,0 +1,29 @@
+%h1 Listing activities
+
+%table
+  %tr
+    %th Actor screen name
+    %th Source service name
+    %th Source type
+    %th Description
+    %th Permalink
+    %th Deleted
+    %th
+    %th
+    %th
+
+  - @activities.each do |activity|
+    %tr
+      %td= activity.actor_screen_name
+      %td= activity.source_service_name
+      %td= activity.source_type
+      %td= activity.description
+      %td= activity.permalink
+      %td= activity.deleted
+      %td= link_to 'Show', activity
+      %td= link_to 'Edit', edit_activity_path(activity)
+      %td= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Activity', new_activity_path

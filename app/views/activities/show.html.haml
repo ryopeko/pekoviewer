@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Actor screen name:
+  = @activity.actor_screen_name
+%p
+  %b Source service name:
+  = @activity.source_service_name
+%p
+  %b Source type:
+  = @activity.source_type
+%p
+  %b Description:
+  = @activity.description
+%p
+  %b Permalink:
+  = @activity.permalink
+%p
+  %b Deleted:
+  = @activity.deleted
+
+= link_to 'Edit', edit_activity_path(@activity)
+\|
+= link_to 'Back', activities_path
