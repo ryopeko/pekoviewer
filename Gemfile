@@ -30,6 +30,8 @@ gem 'haml-rails'
 gem 'sidekiq'
 gem 'sinatra', require: false
 
+gem 'bootstrap-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
