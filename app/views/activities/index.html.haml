@@ -6,21 +6,15 @@
     %th Source service name
     %th Source type
     %th Description
-    %th Permalink
-    %th Deleted
-    %th
-    %th
-    %th
+    %th Created at
 
   - @activities.each do |activity|
     %tr
       %td= activity.actor_screen_name
       %td= activity.source_service_name
       %td= activity.source_type
-      %td= activity.description
-      %td= activity.permalink
-      %td= activity.deleted
-      %td= link_to 'Show', activity
+      %td= link_to activity.description, activity.permalink
+      %td= activity.created_at
 
 %div
   = paginate @activities
