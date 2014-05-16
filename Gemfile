@@ -33,6 +33,10 @@ gem 'sinatra', require: false
 gem 'kaminari'
 gem 'bootstrap-sass'
 
+group :development do
+  gem 'pry-rails'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
