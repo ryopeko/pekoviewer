@@ -21,9 +21,7 @@
       %td= activity.permalink
       %td= activity.deleted
       %td= link_to 'Show', activity
-      %td= link_to 'Edit', edit_activity_path(activity)
-      %td= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+%div
+  = paginate @activities
 
-= link_to 'New Activity', new_activity_path

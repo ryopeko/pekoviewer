@@ -30,6 +30,7 @@ gem 'haml-rails'
 gem 'sidekiq'
 gem 'sinatra', require: false
 
+gem 'kaminari'
 gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
