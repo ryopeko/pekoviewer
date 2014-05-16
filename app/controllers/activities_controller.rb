@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.page params[:page]
+    @activities = Activity.order(created_at: :desc).page params[:page]
   end
 
   # GET /activities/1
