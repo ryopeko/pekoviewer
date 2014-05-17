@@ -3,7 +3,6 @@
 %table
   %tr
     %th Actor screen name
-    %th Source service name
     %th Source type
     %th Description
     %th Created at
@@ -11,8 +10,9 @@
   - @activities.each do |activity|
     %tr
       %td= activity.actor_screen_name
-      %td= activity.source_service_name
-      %td= activity.source_type
+      %td
+        = service_image_tag activity
+        = activity.source_type
       %td= link_to activity.description, activity.permalink
       %td= activity.created_at
 
