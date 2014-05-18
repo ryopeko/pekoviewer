@@ -30,7 +30,7 @@ gem 'haml-rails'
 gem 'sidekiq'
 gem 'sinatra', require: false
 
-gem 'kaminari'
+gem 'kaminari', github: 'amatsuda/kaminari'
 gem 'bootstrap-sass'
 
 group :development do

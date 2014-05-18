@@ -1,6 +1,6 @@
 %h1 Listing activities
 
-%table
+%table.table.table-striped.table-hover
   %tr
     %th Actor screen name
     %th Source type
@@ -13,7 +13,7 @@
       %td
         = service_image_tag activity
         = activity.source_type
-      %td= link_to activity.description, activity.permalink
+      %td= (activity.permalink.present? ? (link_to activity.description, activity.permalink) : activity.description)
       %td= activity.created_at
 
 %div
