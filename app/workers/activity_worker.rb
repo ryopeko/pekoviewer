@@ -2,8 +2,20 @@ class ActivityWorker
   include Sidekiq::Worker
 
   def perform(args)
+    user = ActorUser.where(actor_screen_name: args['actor_screen_name']).first
+
+    unless user
+      user = User.create(name: args['actor_screen_name'])
+      ActorUser.create(
+        user_id: user.id,
+        actor_screen_name: args['actor_screen_name'],
+        source_service_name: args['source_service_name']
+      )
+    end
+
     activity = Activity.new(
       actor_screen_name: args['actor_screen_name'],
+      user_id: user.id,
       source_service_name: args['source_service_name'],
       source_type: args['source_type'],
       description: args['description'],
