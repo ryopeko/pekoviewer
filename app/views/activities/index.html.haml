@@ -9,7 +9,7 @@
 
   - @activities.each do |activity|
     %tr
-      %td= activity.actor_screen_name
+      %td= activity.user.name
       %td
         = service_image_tag activity
         = activity.source_type
