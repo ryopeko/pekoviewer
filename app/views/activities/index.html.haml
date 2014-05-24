@@ -9,7 +9,7 @@
 
   - @activities.each do |activity|
     %tr
-      %td= activity.user.name
+      %td= link_to(activity.user.name, activity.user)
       %td
         = service_image_tag activity
         = activity.source_type
