@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @activities = @user.activities.order(created_at: :desc).page params[:page]
   end
 
   # GET /users/new

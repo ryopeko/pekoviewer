@@ -1,9 +1,29 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @user.name
+%h2= @user.name
+%div
+  %ul
+    - @user.actor_users.each do |actor_user|
+      %li= actor_user.source_service_name
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+%h3 Activities
+
+%table.table.table-striped.table-hover
+  %tr
+    %th Name
+    %th Source type
+    %th Description
+    %th Created at
+
+  - @activities.each do |activity|
+    %tr
+      %td= activity.actor_screen_name
+      %td
+        = service_image_tag activity
+        = activity.source_type
+      %td= link_to_if(activity.permalink.present?, truncate(activity.description, length: 50), activity.permalink)
+      %td= activity.created_at
+
+%div
+  = paginate @activities
+
