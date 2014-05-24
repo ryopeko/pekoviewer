@@ -1,2 +1,3 @@
 class ActorUser < ActiveRecord::Base
+  belongs_to :user
 end
