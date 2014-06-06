@@ -4,7 +4,7 @@
 %div
   %ul
     - @user.actor_users.each do |actor_user|
-      %li= actor_user.source_service_name
+      %li= link_to(actor_user.source_service_name, activities_path(user_id: @user.id))
 
 %h3 Activities
 

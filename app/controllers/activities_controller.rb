@@ -5,6 +5,10 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.order(created_at: :desc).page params[:page]
+    if params[:user_id].present?
+      @activities = @activities.where(user_id: params[:user_id])
+      @user = User.find(params[:user_id])
+    end
   end
 
   # GET /activities/1
