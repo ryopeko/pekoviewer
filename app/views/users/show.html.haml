@@ -3,8 +3,8 @@
 %h2= @user.name
 %div
   %ul
-    - @user.actor_users.each do |actor_user|
-      %li= link_to(actor_user.source_service_name, activities_path(user_id: @user.id))
+    - @user.actor_users.each do |au|
+      %li= link_to("#{au.source_service_name}(#{au.actor_screen_name})", activities_path(user_id: @user.id))
 
 %h3 Activities
 
