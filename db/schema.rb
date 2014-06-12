@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523171348) do
+ActiveRecord::Schema.define(version: 20140612140839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20140523171348) do
     t.datetime "updated_at"
     t.integer  "user_id",             default: 0,     null: false
   end
+
+  add_index "activities", ["user_id", "permalink"], name: "index_activities_on_user_id_and_permalink", unique: true, using: :btree
 
   create_table "actor_users", force: true do |t|
     t.integer  "user_id",             null: false

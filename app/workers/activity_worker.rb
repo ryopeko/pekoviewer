@@ -13,12 +13,6 @@ class ActivityWorker
       )
     end
 
-    return logger.info "already exists: #{args['actor_screen_name']}'s activity" if Activity.where(
-      actor_screen_name: args['actor_screen_name'],
-      source_service_name: args['source_service_name'],
-      permalink: args['permalink']
-    ).present?
-
     activity = Activity.new(
       actor_screen_name: args['actor_screen_name'],
       user_id: actor_user.user.id,
@@ -28,6 +22,8 @@ class ActivityWorker
       permalink: args['permalink'],
       created_at: args['created_at']
     )
+
+    return logger.info "skipped #{activity.errors.full_messages.join(' ')}" unless activity.valid?
 
     logger.info "inserted activity(#{args['source_type']})" if activity.save
   end
