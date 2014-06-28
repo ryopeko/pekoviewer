@@ -35,6 +35,9 @@ group :development do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'quiet_assets'
+  gem 'tapp-awesome_print', group: :test
+  gem 'hirb-unicode'
 end
 
 # Use ActiveModel has_secure_password
