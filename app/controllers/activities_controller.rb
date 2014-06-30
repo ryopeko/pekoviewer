@@ -3,9 +3,14 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.order(created_at: :desc).page params[:page]
+
     if params[:user_id].present?
       @activities = @activities.where(user_id: params[:user_id])
       @user = User.find(params[:user_id])
+    end
+
+    if params[:source_service_name].present? && Activity.has_source_service_name?(params[:source_service_name])
+      @activities = @activities.where(source_service_name: params[:source_service_name])
     end
   end
 
