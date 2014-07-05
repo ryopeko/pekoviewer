@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @activities = Activity.order(created_at: :desc).page params[:page]
+    @activities = Activity.includes(:user).order(created_at: :desc).page params[:page]
 
     if params[:user_id].present?
       @activities = @activities.where(user_id: params[:user_id])
